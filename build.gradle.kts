@@ -3,6 +3,7 @@ plugins {
     id("maven-publish") // if you never publish the plugin, you may remove this (but it also does not hurt)
     signing
     id("io.github.gradle-nexus.publish-plugin") version "1.0.0"
+    id("net.researchgate.release") version "3.0.2"
 }
 
 dependencies {
@@ -11,6 +12,10 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.2")
     testImplementation("org.mockito:mockito-core:5.11.0")
+}
+
+release {
+    tagTemplate = "v${version}"
 }
 
 java {
